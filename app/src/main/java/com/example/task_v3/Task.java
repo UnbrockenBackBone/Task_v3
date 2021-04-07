@@ -1,5 +1,6 @@
 package com.example.task_v3;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class Task {
     public int quantity;
     public Date date;
     public String category;
-    public static List<Task> Tasks;
+    public static ArrayList<Task> Tasks = new ArrayList<>();
 
     public Task(String name, int quantity, Date date, String category) {
         this.name = name;
@@ -49,11 +50,17 @@ public class Task {
         this.category = category;
     }
 
-    public List<Task> getTasks() {
+    public static ArrayList<Task> getTasks() {
         return Tasks;
     }
 
-    public static void setTasks(List<Task> tasks) {
+    public static void setTasks(ArrayList<Task> tasks) {
         Tasks = tasks;
+    }
+
+    @Override
+    public String toString() {
+        return
+                name + '\'' + quantity + date + category + '\'';
     }
 }

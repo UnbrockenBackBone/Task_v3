@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Day">
+    tools:context=".Month">
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonshape"
+        android:backgroundTint="@null"
         android:onClick="addclick"
         android:text="Add"
         android:shadowColor="#A8A8A8"
@@ -31,7 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonshape"
-        android:text="Month"
+        android:backgroundTint="@null"
+        android:onClick="dayclick"
+        android:text="Day"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -46,7 +49,7 @@
         app:layout_constraintVertical_bias="0.885" />
 
     <ListView
-        android:id="@+id/daylist"
+        android:id="@+id/monthlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"

@@ -2,6 +2,7 @@ package com.example.task_v3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,11 +12,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<Task> tasks;
+    ArrayList<Task> tasks = Task.getTasks();
     String[] category = { "Іжа", "Розваги", "Кіно", "Фастфуд", "Квіти"};
     int[] myimage = new int[]{R.drawable.food, R.drawable.entertainment, R.drawable.cinema, R.drawable.fastfood, R.drawable.flowers};
     @Override
@@ -49,10 +51,20 @@ public class MainActivity extends AppCompatActivity {
         EditText Sum = (EditText) findViewById(R.id.sum);
         Integer sum = Integer.parseInt(Sum.getText().toString());
         EditText Date = (EditText) findViewById(R.id.date);
-        java.util.Date date = java.sql.Date.valueOf(String.valueOf(Date.getText()));
+        Date date = java.sql.Date.valueOf(String.valueOf(Date.getText()));
         tasks.add(new Task(name,sum, date,category));
         Task.setTasks(tasks);
         Toast toast = Toast.makeText(this, "Успішно додано!", Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    public void dayclick(View view) {
+        Intent myIntent = new Intent(view.getContext(), Day.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void monthclick(View view) {
+        Intent myIntent = new Intent(view.getContext(), Month.class);
+        startActivityForResult(myIntent, 0);
     }
 }
