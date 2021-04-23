@@ -10,6 +10,15 @@ public class Task {
     public Date date;
     public String category;
     public static ArrayList<Task> Tasks = new ArrayList<>();
+    public static String[] categoryarr = { "Іжа", "Розваги", "Кіно", "Фастфуд", "Квіти"};
+
+    public static String[] getCategoryarr() {
+        return categoryarr;
+    }
+
+    public void setCategoryarr(String[] categoryarr) {
+        this.categoryarr = categoryarr;
+    }
 
     public Task(String name, int quantity, Date date, String category) {
         this.name = name;
@@ -61,6 +70,17 @@ public class Task {
     @Override
     public String toString() {
         return
-                name + '\'' + quantity + date + category + '\'';
+                "Категорія: " + category + " Призначення: "+ name + " Сума: " + quantity + " Дата: " + date;
+    }
+    public static int Sum(String category)
+    {
+        int money=0;
+        for (Task object:Tasks) {
+            if(object.getCategory().equals(category))
+            {
+                money+=object.getQuantity();
+            }
+        }
+        return money;
     }
 }
